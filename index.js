@@ -53,8 +53,30 @@ let myArrayDeObjetos = [
     year: 2001,
     maxSpeed: 290
   },
+  {
+    make: 'BMW',
+    model: '220i',
+    year: 2005,
+    maxSpeed: 220
+  },
 ]
 
 // 1 Saber la velocidad promedio de los autos
 // 2 La marca que mas aparece
 // 3 Mostrar solo los que tengan mayor velocidad que 150
+
+function mostrarTodosLosAutos(){
+  auto = '';
+  myArrayDeObjetos.forEach(el => {
+    auto += `
+    <div class="container">
+      <h3>${el.make}</h3>
+      <h3>${el.model}</h3>
+      <h3>${el.year}</h3>
+      <h3>${el.maxSpeed}</h3>
+    </div>
+    `
+  })
+  document.getElementById('body').innerHTML = auto;
+}
+mostrarTodosLosAutos();
