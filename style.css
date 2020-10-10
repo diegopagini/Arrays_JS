@@ -12,3 +12,15 @@
   border-radius: 5px;
   margin: 10px;
 }
+
+.mini-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#mostrarPromedio, #apareceMas, #masRapidos {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+}
