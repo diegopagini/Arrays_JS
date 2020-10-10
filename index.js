@@ -85,7 +85,7 @@ mostrarTodosLosAutos();
 // 1° sumar todas las velocidades
 // 2° dividirlas por el total
 
-let promedio = '';
+let promedio = "";
 function calcularPromedioVelocidad() {
   acumuladorVelocidad = 0;
   autosArray.forEach((auto) => {
@@ -97,8 +97,9 @@ function calcularPromedioVelocidad() {
   console.log("la velocidad promedio de todos los autos es", promedio);
 }
 calcularPromedioVelocidad();
-document.getElementById('mostrarPromedio').innerHTML = `la velocidad promedio de todos los autos es ${promedio}`;
-
+document.getElementById(
+  "mostrarPromedio"
+).innerHTML = `la velocidad promedio de todos los autos es ${promedio}`;
 
 // otra manera
 let promedioDos =
@@ -106,7 +107,32 @@ let promedioDos =
   autosArray.length;
 console.log("la velocidad promedio, utiizando reduce es", promedioDos);
 
+// El auto mas lento
+function elMasLento() {
+  min = autosArray[0];
+  autosArray.forEach((auto) => {
+    if (autosArray < min) {
+      min = autosArray;
+    }
+  });
+  console.log(min);
+}
+elMasLento();
+document.getElementById(
+  "masLento"
+).innerHTML = `El auto mas lento va a ${min.maxSpeed}`;
+// No funca
 
+function elMasLentoDos() {
+  arrayDeVelocidades = [];
+  autosArray.forEach((auto) => {
+    arrayDeVelocidades.push(autosArray.maxSpeed);
+  });
+
+  masLento = Math.min(...arrayDeVelocidades);
+  console.log(masLento);
+}
+elMasLentoDos();
 
 // 2 La marca que mas aparece
 function apareceMasVeces() {
@@ -125,11 +151,11 @@ function apareceMasVeces() {
         //Solo sumo a resultsString lo que aparece una vez
         resultsString.push(auto.make);
         cantidad = autosArray.filter((auto) => {
-          return auto.make === resultsString
-        })
-        if (cantidad.length > maximo) /*siempre va a ser mayor*/ {
-          maximo = cantidad.length;
-          console.log("La marca que aparece mas es:", resultsString[maximo])
+          return auto.make === resultsString;
+        });
+        if (cantidad.length > maximo) {
+          /*siempre va a ser mayor*/ maximo = cantidad.length;
+          console.log("La marca que aparece mas es:", resultsString[maximo]);
         }
       }
     }
@@ -149,20 +175,23 @@ function apareceMasVeces() {
   // console.log("La marca que aparece mas es:", resultsString[masRepetido]);
 }
 apareceMasVeces();
-document.getElementById('apareceMas').innerHTML = `la marca que aparece mas es ${resultsString[maximo]}`;
-
+document.getElementById(
+  "apareceMas"
+).innerHTML = `la marca que aparece mas es ${resultsString[maximo]}`;
 
 // Mostrar los mas rapidos
-let autosRapidos = autosArray.filter(auto => auto.maxSpeed > 150);
-console.log('Los autos mas rapidos son:', autosRapidos);
-mostrar = '';
-autosRapidos.forEach(auto => {
+let autosRapidos = autosArray.filter((auto) => auto.maxSpeed > 150);
+console.log("Los autos mas rapidos son:", autosRapidos);
+mostrar = "";
+autosRapidos.forEach((auto) => {
   mostrar += `
   <div class="mini-container">
     <h3>${auto.make}</h3>
     <h3>${auto.model}</h3>
   </div>
-  `
-})
+  `;
+});
 
-document.getElementById('masRapidos').innerHTML = `Los autos que pueden ir a mas velocidad que 150 son: ${mostrar}`;
+document.getElementById(
+  "masRapidos"
+).innerHTML = `Los autos que pueden ir a mas velocidad que 150 son: ${mostrar}`;
