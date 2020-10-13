@@ -109,14 +109,18 @@ console.log("la velocidad promedio, utiizando reduce es", promedioDos);
 
 // El auto mas lento
 function elMasLento() {
-  min = autosArray[0];
+  
+  min = autosArray[0].maxSpeed; //200
+
   autosArray.forEach((auto) => {
-    if (autosArray < min) {
-      min = autosArray;
+    if (auto.maxSpeed < min) {
+      min = auto.maxSpeed;
     }
   });
-  console.log(min);
+
+  console.log('1° el mas lento es ', min);
 }
+
 elMasLento();
 document.getElementById(
   "masLento"
@@ -124,13 +128,22 @@ document.getElementById(
 // No funca
 
 function elMasLentoDos() {
-  arrayDeVelocidades = [];
+  /*arrayDeVelocidades = [];
   autosArray.forEach((auto) => {
-    arrayDeVelocidades.push(autosArray.maxSpeed);
-  });
+    arrayDeVelocidades.push(auto.maxSpeed);
+  });*/
 
-  masLento = Math.min(...arrayDeVelocidades);
-  console.log(masLento);
+  /*const arrayDeVelocidades = autosArray.map((auto) => {
+    return auto.maxSpeed;
+  });*/
+
+  masLento = Math.min(...autosArray.map((auto) => {
+    return auto.maxSpeed;
+  }));
+
+
+  //masLento = Math.min(...arrayDeVelocidades);
+  console.log('mas lento 2 ' ,masLento);
 }
 elMasLentoDos();
 
