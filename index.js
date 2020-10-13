@@ -109,10 +109,10 @@ console.log("la velocidad promedio, utiizando reduce es", promedioDos);
 
 // El auto mas lento
 function elMasLento() {
-  min = autosArray[0];
+  min = autosArray[0].maxSpeed;
   autosArray.forEach((auto) => {
-    if (autosArray < min) {
-      min = autosArray;
+    if (auto.maxSpeed < min) {
+      min = auto.maxSpeed;
     }
   });
   console.log(min);
@@ -120,19 +120,22 @@ function elMasLento() {
 elMasLento();
 document.getElementById(
   "masLento"
-).innerHTML = `El auto mas lento va a ${min.maxSpeed}`;
-// No funca
+).innerHTML = `El auto mas lento va a ${min}`;
+// Ahora funca
+
 
 function elMasLentoDos() {
   arrayDeVelocidades = [];
   autosArray.forEach((auto) => {
-    arrayDeVelocidades.push(autosArray.maxSpeed);
+    arrayDeVelocidades.push(auto.maxSpeed);
   });
+
 
   masLento = Math.min(...arrayDeVelocidades);
   console.log(masLento);
 }
 elMasLentoDos();
+// Anda bien
 
 // 2 La marca que mas aparece
 function apareceMasVeces() {
