@@ -4,12 +4,14 @@ let autosArray = [
     model: "Mustang",
     year: 1969,
     maxSpeed: 190,
+    kilometros: 50000
   },
   {
     make: "Chevrolet",
     model: "Cruzie",
     year: 2015,
     maxSpeed: 170,
+    kilometros: 0
   },
   {
     make: "Fiat",
@@ -96,7 +98,9 @@ function calcularPromedioVelocidad() {
 
   console.log("la velocidad promedio de todos los autos es", promedio);
 }
+
 calcularPromedioVelocidad();
+
 document.getElementById(
   "mostrarPromedio"
 ).innerHTML = `la velocidad promedio de todos los autos es ${promedio}`;
@@ -192,19 +196,37 @@ document.getElementById(
   "apareceMas"
 ).innerHTML = `la marca que aparece mas es ${resultsString[maximo]}`;
 
-// Mostrar los mas rapidos
-let autosRapidos = autosArray.filter((auto) => auto.maxSpeed > 150);
-console.log("Los autos mas rapidos son:", autosRapidos);
-mostrar = "";
-autosRapidos.forEach((auto) => {
-  mostrar += `
-  <div class="mini-container">
-    <h3>${auto.make}</h3>
-    <h3>${auto.model}</h3>
-  </div>
-  `;
-});
+obtenerAutosPorVelocidad(150, autosFord);
+obtenerAutosPorVelocidad(190);
+obtenerAutosPorVelocidad(220);
+obtenerAutosPorVelocidad(100);
 
-document.getElementById(
-  "masRapidos"
-).innerHTML = `Los autos que pueden ir a mas velocidad que 150 son: ${mostrar}`;
+function obtenerAutosPorVelocidad(velocidad, autosArray){
+  // Mostrar los mas rapidos
+  let autosRapidos = autosArray.filter((auto) => auto.maxSpeed > velocidad);
+  console.log("Los autos mas rapidos son:", autosRapidos);
+  mostrar = "";
+  autosRapidos.forEach((auto) => {
+    mostrar += `
+    <div class="mini-container">
+      <h3 class="big-size">${auto.make}</h3>
+      <h3>${auto.model}</h3>
+    </div>
+    `;
+  });
+
+  document.getElementById(
+    "masRapidos"
+  ).innerHTML += `Los autos que pueden ir a mas velocidad que ${velocidad} son: ${mostrar}`;
+} 
+
+
+/** */
+function obtenerAutosPorKilometraje(){
+  console.log('tarea')
+}
+
+
+function obtenerAutosPorPrecio(){
+  console.log('tarea')
+}
