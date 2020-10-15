@@ -4,62 +4,80 @@ let autosArray = [
     model: "Mustang",
     year: 1969,
     maxSpeed: 190,
-    kilometros: 50000
+    kilometros: 50000,
+    precio: 1000
   },
   {
     make: "Chevrolet",
     model: "Cruzie",
     year: 2015,
     maxSpeed: 170,
-    kilometros: 0
+    kilometros: 4000,
+    precio: 2000
   },
   {
     make: "Fiat",
     model: "Uno",
     year: 1999,
     maxSpeed: 100,
+    kilometros: 30000,
+    precio: 1500
   },
   {
     make: "Ford",
     model: "Falcon",
     year: 1964,
     maxSpeed: 110,
+    kilometros: 6000,
+    precio: 500
   },
   {
     make: "Nissan",
     model: "Zeta",
     year: 2007,
     maxSpeed: 170,
+    kilometros: 2000,
+    precio: 10000
   },
   {
     make: "Ferrari",
     model: "250 GT",
     year: 2002,
     maxSpeed: 300,
+    kilometros: 2500,
+    precio: 15000
   },
   {
     make: "Ford",
     model: "Focus",
     year: 1999,
     maxSpeed: 90,
+    kilometros: 3000,
+    precio: 5000
   },
   {
     make: "Peugeot",
     model: "208",
     year: 2020,
     maxSpeed: 160,
+    kilometros: 600,
+    precio: 100000
   },
   {
     make: "Lamborgini",
     model: "Murcielago",
     year: 2001,
     maxSpeed: 290,
+    kilometros: 25300,
+    precio: 90000
   },
   {
     make: "BMW",
     model: "220i",
     year: 2005,
     maxSpeed: 220,
+    kilometros: 70000,
+    precio: 350000
   },
 ];
 
@@ -196,12 +214,12 @@ document.getElementById(
   "apareceMas"
 ).innerHTML = `la marca que aparece mas es ${resultsString[maximo]}`;
 
-obtenerAutosPorVelocidad(150, autosFord);
+obtenerAutosPorVelocidad(150);
 obtenerAutosPorVelocidad(190);
 obtenerAutosPorVelocidad(220);
 obtenerAutosPorVelocidad(100);
 
-function obtenerAutosPorVelocidad(velocidad, autosArray){
+function obtenerAutosPorVelocidad(velocidad){
   // Mostrar los mas rapidos
   let autosRapidos = autosArray.filter((auto) => auto.maxSpeed > velocidad);
   console.log("Los autos mas rapidos son:", autosRapidos);
@@ -221,12 +239,23 @@ function obtenerAutosPorVelocidad(velocidad, autosArray){
 } 
 
 
-/** */
-function obtenerAutosPorKilometraje(){
-  console.log('tarea')
+/* */
+function obtenerAutosPorKilometraje(km, xArray){ // Mostramos los que tengan < de km kilometros
+  let autosMostrados = xArray.filter((auto) => auto.kilometros < km);
+  console.log(`los autos que tienen menos de ${km} kilometros son:`, autosMostrados);
 }
+obtenerAutosPorKilometraje(5000, autosArray);
+obtenerAutosPorKilometraje(10000, autosArray);
+obtenerAutosPorKilometraje(1000, autosArray);
 
 
-function obtenerAutosPorPrecio(){
-  console.log('tarea')
+
+function obtenerAutosPorPrecio(precio, xArray){ //Mostramos los que tengan < de precio 
+  let autosMostrados = xArray.filter((auto) => auto.precio < precio);
+  console.log(`los autos que tienen menos de ${precio} precio  son:`, autosMostrados);
 }
+obtenerAutosPorPrecio(20000, autosArray);
+obtenerAutosPorPrecio(10000, autosArray);
+obtenerAutosPorPrecio(5000, autosArray);
+
+
