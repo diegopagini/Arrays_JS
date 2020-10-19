@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.red {
+  color: black;
+}
+
+.row.center {
+  margin-left: 16.66% !important;
+}

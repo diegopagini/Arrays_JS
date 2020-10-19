@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tracker de Cursos</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div id="app" class="section container">
+
+      <div class="row center">
+        <div class="col s12 m10 center">
+          <h4>Todo lo que esta en el Array</h4>
+          <ul class="section">
+            <li v-for="auto in autos" :key="auto.make">
+              Marca: {{ auto.make }}, Modelo: {{ auto.model }}, Año: {{auto.year}}, Velocidad Maxima: {{auto.maxSpeed}}, cantidad de kilometros: {{auto.kilometros}}, y el precio es de : {{auto.precio}}
+            </li>
+          </ul>
+          <div class="row section">
+            <div class="col s12 center">
+              <p>El promedio de velocidades es: {{ promedio }}</p>
+            </div>
+          </div>
+          <div class="row section">
+            <div class="col s12 center">
+              <p>El promedio auto mas lento es: {{ lento }}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row center">
+        <div class="col s12 m8 center">
+          
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
